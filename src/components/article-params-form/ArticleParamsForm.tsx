@@ -48,8 +48,6 @@ export const ArticleParamsForm = ({
 	};
 
 	return (
-		// <Separator /> отображает полосу в цвете background: #000000; а у нас в макете цвет #D7D7D7 не стал добавлять
-		// пропс, так как компоненты сказали не изменять
 		<>
 			<ArrowButton isOpen={formOpen} onClick={() => setFormOpen(!formOpen)} />
 			<aside
