@@ -19,7 +19,7 @@ export const App = () => {
 		useState<ArticleStateType>(defaultArticleState);
 
 	return (
-		<div
+		<main
 			className={clsx(styles.main)}
 			style={
 				{
@@ -32,7 +32,7 @@ export const App = () => {
 			}>
 			<ArticleParamsForm setArticleStyle={setArticleStyle}></ArticleParamsForm>
 			<Article />
-		</div>
+		</main>
 	);
 };
 
