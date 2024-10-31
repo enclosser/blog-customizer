@@ -8,19 +8,21 @@ import styles from './ArticleParamsForm.module.scss';
 import {
 	ArticleStateType,
 	defaultArticleState,
+	fontSizeOptions,
 	fontFamilyOptions,
 } from 'src/constants/articleProps';
+import { RadioGroup } from 'src/ui/radio-group';
 
 export const ArticleParamsForm = () => {
-	const [FormOpen, setFormOpen] = useState<boolean>(false);
+	const [formOpen, setFormOpen] = useState<boolean>(false);
 	const [formState, setFormState] =
 		useState<ArticleStateType>(defaultArticleState);
 
 	return (
 		<>
-			<ArrowButton isOpen={FormOpen} onClick={() => setFormOpen(!FormOpen)} />
+			<ArrowButton isOpen={formOpen} onClick={() => setFormOpen(!formOpen)} />
 			<aside
-				className={clsx(styles.container, FormOpen && styles.container_open)}>
+				className={clsx(styles.container, formOpen && styles.container_open)}>
 				<form className={styles.form}>
 					<Text size={31} weight={800} uppercase={true}>
 						Задайте параметры
@@ -31,6 +33,15 @@ export const ArticleParamsForm = () => {
 						title='шрифт'
 						onChange={(value) =>
 							setFormState({ ...formState, fontFamilyOption: value })
+						}
+					/>
+					<RadioGroup
+						name='fontSize'
+						options={fontSizeOptions}
+						selected={formState.fontSizeOption}
+						title='размер шрифта'
+						onChange={(value) =>
+							setFormState({ ...formState, fontSizeOption: value })
 						}
 					/>
 					<div className={styles.bottomContainer}>
